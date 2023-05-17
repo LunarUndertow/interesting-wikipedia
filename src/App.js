@@ -1,20 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { load } from 'cheerio';
 
 function App() {
-    const [data, setData] = useState(null);
+    const [pageNames, setPageNames] = useState(null);
 
     useEffect(() => {
-        async function getData() {
-            await fetch("https://en.wikipedia.org/api/rest_v1/page/html/Wikipedia:Unusual_articles")
-                .then(response => response.text())
-                .then(data => setData(data))
-                .catch(error => console.error(error));
-        };
-        
-        getData();
+        axios.get("https://en.wikipedia.org/api/rest_v1/page/html/Wikipedia:Unusual_articles")
+            .then(({data}) => {
+                const page = load(data);
+                const titles = page('.wikitable')
+                    .find('a')
+                    .map((index, name) => {
+                        const pname = page(name);
+                        return pname.text();
+                    })
+                    .toArray();
+                setPageNames(titles);
+            });
     }, [])
+
 
     return (
         <div className="App">
@@ -31,8 +38,8 @@ function App() {
             >
             Learn React
             </a>
+            { pageNames }
         </header>
-        
         </div>
     );
 }
