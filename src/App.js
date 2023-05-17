@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { load } from 'cheerio';
+import PageCard from './Components/pageCard';
 
 function App() {
     const [pageNames, setPageNames] = useState(null);
@@ -23,6 +24,11 @@ function App() {
     }, [])
 
 
+    const randomPageName = () => {
+        if (pageNames) return pageNames[Math.floor(Math.random() * pageNames.length)];
+    }
+
+
     return (
         <div className="App">
         <header className="App-header">
@@ -38,7 +44,10 @@ function App() {
             >
             Learn React
             </a>
-            { pageNames }
+            <PageCard page={randomPageName()} />
+            <PageCard page={randomPageName()} />
+            <PageCard page={randomPageName()} />
+            <PageCard page={randomPageName()} />
         </header>
         </div>
     );
