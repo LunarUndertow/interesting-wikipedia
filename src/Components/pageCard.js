@@ -29,13 +29,18 @@ function PageCard(props) {
     };
 
 
+    const link = () => {
+        if (path) return "https://en.wikipedia.org/wiki/" + path.substring(2);
+    };
+
+
     return (
         <Card sx={{ maxWidth: 400, margin: 2 }}>
-            <CardActionArea>
+            <CardActionArea href={page ? "https://en.wikipedia.org/wiki/" + path.substring(2) : ''}>
                 <CardMedia 
                     component="img"
                     height="150"
-                    image={page && page.thumbnail ?  page.thumbnail.source : 'https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg'}
+                    image={page && page.thumbnail ? page.thumbnail.source : 'https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg'}
                     alt="Wikipedia image thumbnail"
                 />
                 <CardContent>
