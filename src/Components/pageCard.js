@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
 
 function PageCard(props) {
     const path = props.path;
@@ -25,23 +29,25 @@ function PageCard(props) {
     };
 
 
-    const thumbnail = () => {
-        if (page && page.thumbnail) return <img src={page.thumbnail.source} alt="Wikipedia image thumbnail" />;
-    }
-
-
     return (
-        <span>
-            <div>
-                { title() }
-            </div>
-            <div>
-                { thumbnail() }
-            </div>
-            <div>
-                { extract() }
-            </div>
-        </span>
+        <Card sx={{ maxWidth: 400, margin: 2 }}>
+            <CardActionArea>
+                <CardMedia 
+                    component="img"
+                    height="150"
+                    image={page && page.thumbnail ?  page.thumbnail.source : 'https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg'}
+                    alt="Wikipedia image thumbnail"
+                />
+                <CardContent>
+                    <h3>
+                        { title() }
+                    </h3>
+                    <div>
+                        { extract() }
+                    </div>
+                </CardContent>
+            </CardActionArea>
+        </Card>
     );
 }
 
