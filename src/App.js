@@ -16,7 +16,7 @@ function App() {
                     .find('a')
                     .map((index, name) => {
                         const pname = page(name);
-                        return pname.text();
+                        return pname.attr('href');
                     })
                     .toArray();
                 setPageNames(titles);
