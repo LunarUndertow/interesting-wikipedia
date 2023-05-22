@@ -19,8 +19,8 @@ function App() {
                         return pname.attr('href');
                     })
                     .toArray();
-                setPageNames(titles);
-            });
+                setPageNames(titles); })
+            .catch((error) => console.error(error));
     }, [])
 
 

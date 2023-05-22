@@ -18,8 +18,8 @@ function PageCard(props) {
             axios.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + path.substring(2),
                 { headers: { 'Api-User-Agent': 'https://github.com/LunarUndertow/' } })
                 .then((response) => {
-                    setPage(response.data);
-                });
+                    setPage(response.data); })
+                .catch((error) => console.error(error));
         }
     }, [path]);
 
