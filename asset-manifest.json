@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/interesting-wikipedia/static/css/main.5c2bc268.css",
+    "main.js": "/interesting-wikipedia/static/js/main.35983015.js",
+    "static/js/27.3916a8f5.chunk.js": "/interesting-wikipedia/static/js/27.3916a8f5.chunk.js",
+    "index.html": "/interesting-wikipedia/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.5c2bc268.css",
+    "static/js/main.35983015.js"
+  ]
+}
