@@ -24,8 +24,14 @@ function PageCard(props) {
     }, [path]);
 
 
-    const articleUrl = () => {
+    const apiUrl = () => {
         if (path) return "https://en.wikipedia.org/api/rest_v1/page/html/" + path.substring(2);
+        return '';
+    }
+
+
+    const articleUrl = () => {
+        if (path) return "https://en.wikipedia.org/wiki/" + path.substring(2);
         return '';
     }
     
@@ -82,8 +88,8 @@ function PageCard(props) {
                 aria-describedby="modal-wikipedia-article"
             >
                 <Box sx={style}>
-                    <div><a href={articleUrl()}>{articleUrl()}</a></div>
-                    <ModalPage pageUrl={articleUrl()} />
+                    <div>Source: <a href={articleUrl()}>{articleUrl()}</a></div>
+                    <ModalPage pageUrl={apiUrl()} />
                 </Box>
             </Modal>
         </div>
