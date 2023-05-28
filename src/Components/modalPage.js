@@ -7,6 +7,7 @@ function ModalPage(props) {
     const pageUrl = props.pageUrl;
     const [page, setPage] = useState(null);
 
+    // when pageUrl changes, fetch page from said url and set the html data as state
     useEffect(() => {
         if (pageUrl) {
             axios.get(pageUrl,
@@ -17,6 +18,7 @@ function ModalPage(props) {
     }, [pageUrl]);
 
 
+    // if a page exists, render a sanitized version of it
     return (
         <div>
             {page ? parse(DOMPurify.sanitize(page)) : ''}

@@ -13,6 +13,7 @@ function PageCard(props) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // when pathname gets updated, fetch summary for said article and it set as state
     useEffect(() => {
         if (path) {
             axios.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + path.substring(2),
@@ -24,28 +25,33 @@ function PageCard(props) {
     }, [path]);
 
 
+    // if pathname has been set, return URL for API call
     const apiUrl = () => {
         if (path) return "https://en.wikipedia.org/api/rest_v1/page/html/" + path.substring(2);
         return '';
     }
 
 
+    // if pathname has been set, return URL for human user
     const articleUrl = () => {
         if (path) return "https://en.wikipedia.org/wiki/" + path.substring(2);
         return '';
     }
     
 
+    // if page summary has been fetched, return its title field
     const title = () => {
         if (page) return page.title;
     };
 
 
+    // if page summary has been fetched, return its extract field
     const extract = () => {
         if (page) return page.extract;
     };
 
 
+    // define style for modal
     const style = {
         position: 'absolute',
         top: '50%',
@@ -61,6 +67,9 @@ function PageCard(props) {
       };
 
 
+    // Render a card for article summary, including an image slice (defaults to logo if no image),
+    // article title and articl extract. Define a modal view within which to render the whole article
+    // as a ModalPage component, alongside article URL cited as the source.
     return (
         <div>
             <Card sx={{ maxWidth: 400, margin: 2 }}>
