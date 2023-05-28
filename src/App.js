@@ -15,6 +15,7 @@ function App() {
             .then(({data}) => {
                 const page = load(data);
                 const titles = page('.wikitable')
+                    .find('b')
                     .find('a')
                     .map((index, name) => {
                         const pname = page(name);
