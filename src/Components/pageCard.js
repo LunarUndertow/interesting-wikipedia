@@ -63,7 +63,7 @@ function PageCard(props) {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-        overflow: 'scroll',
+        overflow: 'auto',
       };
 
 
