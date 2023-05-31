@@ -53,7 +53,7 @@ function PageCard(props) {
 
     // define style for modal
     const style = {
-        position: 'absolute',
+        position: 'fixed',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -71,8 +71,8 @@ function PageCard(props) {
     // article title and articl extract. Define a modal view within which to render the whole article
     // as a ModalPage component, alongside article URL cited as the source.
     return (
-        <div>
-            <Card sx={{ maxWidth: 400, margin: 2 }}>
+        <Box sx={{ maxWidth: 400, minWidth: 250, flexBasis: 250, flexGrow: 1, margin: 2 }}>
+            <Card>
                 <CardActionArea onClick={handleOpen}>
                     <CardMedia 
                         component="img"
@@ -101,7 +101,7 @@ function PageCard(props) {
                     <ModalPage pageUrl={apiUrl()} />
                 </Box>
             </Modal>
-        </div>
+        </Box>
     );
 }
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { load } from 'cheerio';
 import Button from '@mui/material/Button';
 import PageCard from './Components/pageCard';
+import Box from '@mui/material/Box';
 
 function App() {
     const [pageNames, setPageNames] = useState(null);
@@ -50,12 +51,12 @@ function App() {
     return (
         <div className="App">
         <header className="App-header">
-            <div>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
-            </div>
+            </Box>
             <Button variant="outlined" size="large" onClick={refresh}>Refresh</Button>
         </header>
         
