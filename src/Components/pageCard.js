@@ -97,7 +97,7 @@ function PageCard(props) {
                 aria-describedby="modal-wikipedia-article"
             >
                 <Box sx={style}>
-                    <div>Source: <a href={articleUrl()}>{articleUrl()}</a></div>
+                    <div className='source'>Source: <a href={articleUrl()}>{articleUrl()}</a></div>
                     <ModalPage pageUrl={apiUrl()} />
                 </Box>
             </Modal>
