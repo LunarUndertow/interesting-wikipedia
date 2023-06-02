@@ -50,16 +50,13 @@ function App() {
 
     return (
         <div className="App">
-        <header className="App-header">
-            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' }}>
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
                 <PageCard path={randomPageName()} />
             </Box>
             <Button variant="outlined" size="large" onClick={refresh}>Refresh</Button>
-        </header>
-        
         </div>
     );
 }
