@@ -14,3 +14,14 @@
   border-radius: 0.7em;
   display: inline-block;
 }
+
+.infobox {
+  float: right;
+  width: 22em;
+  text-align: center;
+  font-size: 88%;
+}
+
+.infobox .infobox-label, .infobox.infobox-data {
+  text-align: left;
+}

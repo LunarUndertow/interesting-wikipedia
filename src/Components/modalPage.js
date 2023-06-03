@@ -22,7 +22,7 @@ function ModalPage(props) {
     // Sanitize the fetched page and replace relative links with absolute ones
     const processedHtml = () => {
         const sanitizedPage = DOMPurify.sanitize(page);
-        const html = load(sanitizedPage)
+        const html = load(sanitizedPage,{ ALLOWED_ATTR: ['style']})
         html('a').each((i, elem) => {
             if (html(elem).attr('href') && html(elem).attr('href').startsWith('./')) {
                 const path = html(elem).attr('href').substring(1)
